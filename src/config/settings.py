@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'appointment.apps.AppointmentConfig',
+    'clinic.apps.ClinicConfig',
+    'timetables.apps.TimetablesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
