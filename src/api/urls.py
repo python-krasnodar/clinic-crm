@@ -5,6 +5,7 @@ from . import views
 router = routers.DefaultRouter()
 router.register(r'doctors', views.DoctorViewSet)
 router.register(r'specialities', views.SpecialityViewSet)
+router.register(r'timetables', views.TimetableViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
