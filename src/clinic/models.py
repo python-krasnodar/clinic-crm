@@ -3,7 +3,7 @@ from django.db import models
 
 class Speciality(models.Model):
     title = models.CharField(max_length=128, blank=False, null=False, unique=True)
-    sorder = models.IntegerField(blank=True, null=False, default=0)
+    sorder = models.IntegerField(blank=True, null=False, default=0, db_index=True)
 
     def __str__(self):
         return self.title
@@ -15,7 +15,7 @@ class Speciality(models.Model):
 class Doctor(models.Model):
     first_name = models.CharField(max_length=128, blank=False, null=False)
     last_name = models.CharField(max_length=128, blank=False, null=False)
-    sorder = models.IntegerField(blank=True, null=False, default=0)
+    sorder = models.IntegerField(blank=True, null=False, default=0, db_index=True)
     speciality = models.ForeignKey(Speciality, on_delete=models.PROTECT)
 
     def __str__(self):
@@ -23,3 +23,6 @@ class Doctor(models.Model):
 
     class Meta:
         ordering = ['sorder']
+        index_together = [
+            ['first_name', 'last_name']
+        ]
