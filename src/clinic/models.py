@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Speciality(models.Model):
-    title = models.CharField(max_length=128, blank=False, null=False)
+    title = models.CharField(max_length=128, blank=False, null=False, unique=True)
     sorder = models.IntegerField(blank=True, null=False, default=0)
 
     def __str__(self):
