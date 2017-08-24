@@ -1,4 +1,60 @@
 {% extends 'front/layout.html' %}
+
+{% load static %}
+
 {% block content %}
-    <h1>Hello!</h1>
+    <h1>Запись на прием</h1>
+
+    <form>
+
+        <div class="form-group">
+            <label for="speciality">Специалист</label>
+            <select
+                name="speciality"
+                id="speciality"
+                class="form-control"
+                disabled
+                data-url="{% url 'api:speciality-list' %}">
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="doctor">Врач</label>
+            <select
+                name="doctor"
+                id="doctor"
+                class="form-control"
+                disabled
+                data-url="{% url 'api:doctor-list' %}">
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="day">День записи</label>
+            <div id="day-datepicker" data-date="01/08/2017"></div>
+            <input type="hidden" name="day" id="day" data-url="{% url 'api:timetable-list' %}">
+        </div>
+
+        <div class="form-group">
+            <label for="time">Время приема</label>
+            <select
+                name="time"
+                id="time"
+                class="form-control"
+                disabled
+                data-base-url="/api/times">
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Записаться" />
+        </div>
+    </form>
+{% endblock %}
+
+{% block body_scripts %}
+
+    {{ block.super }}
+
+    <script src="{% static 'front/js/index.js' %}"></script>
 {% endblock %}
