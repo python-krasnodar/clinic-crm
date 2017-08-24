@@ -1,0 +1,134 @@
+[
+{
+    "model": "timetables.timetable",
+    "pk": 5,
+    "fields": {
+        "day_of_week": 0,
+        "start_time": "08:00:00",
+        "end_time": "17:00:00",
+        "break_start_time": "12:00:00",
+        "break_end_time": "13:00:00",
+        "doctor": 5
+    }
+},
+{
+    "model": "timetables.timetable",
+    "pk": 6,
+    "fields": {
+        "day_of_week": 2,
+        "start_time": "09:00:00",
+        "end_time": "18:00:00",
+        "break_start_time": "13:00:00",
+        "break_end_time": "14:00:00",
+        "doctor": 5
+    }
+},
+{
+    "model": "timetables.timetable",
+    "pk": 7,
+    "fields": {
+        "day_of_week": 4,
+        "start_time": "06:00:00",
+        "end_time": "14:00:00",
+        "break_start_time": "11:00:00",
+        "break_end_time": "12:00:00",
+        "doctor": 5
+    }
+},
+{
+    "model": "timetables.timetable",
+    "pk": 8,
+    "fields": {
+        "day_of_week": 1,
+        "start_time": "08:00:00",
+        "end_time": "17:00:00",
+        "break_start_time": "12:00:00",
+        "break_end_time": "13:00:00",
+        "doctor": 6
+    }
+},
+{
+    "model": "timetables.timetable",
+    "pk": 9,
+    "fields": {
+        "day_of_week": 3,
+        "start_time": "10:00:00",
+        "end_time": "19:00:00",
+        "break_start_time": "14:00:00",
+        "break_end_time": "15:00:00",
+        "doctor": 6
+    }
+},
+{
+    "model": "timetables.timetable",
+    "pk": 10,
+    "fields": {
+        "day_of_week": 1,
+        "start_time": "10:00:00",
+        "end_time": "18:00:00",
+        "break_start_time": "13:00:00",
+        "break_end_time": "14:00:00",
+        "doctor": 7
+    }
+},
+{
+    "model": "timetables.timetable",
+    "pk": 11,
+    "fields": {
+        "day_of_week": 4,
+        "start_time": "09:00:00",
+        "end_time": "16:00:00",
+        "break_start_time": "12:00:00",
+        "break_end_time": "13:00:00",
+        "doctor": 7
+    }
+},
+{
+    "model": "timetables.timetable",
+    "pk": 12,
+    "fields": {
+        "day_of_week": 1,
+        "start_time": "10:00:00",
+        "end_time": "18:00:00",
+        "break_start_time": "12:00:00",
+        "break_end_time": "13:00:00",
+        "doctor": 8
+    }
+},
+{
+    "model": "timetables.timetable",
+    "pk": 13,
+    "fields": {
+        "day_of_week": 3,
+        "start_time": "08:00:00",
+        "end_time": "16:00:00",
+        "break_start_time": "12:00:00",
+        "break_end_time": "13:00:00",
+        "doctor": 9
+    }
+},
+{
+    "model": "timetables.timetable",
+    "pk": 14,
+    "fields": {
+        "day_of_week": 2,
+        "start_time": "10:00:00",
+        "end_time": "19:00:00",
+        "break_start_time": "13:00:00",
+        "break_end_time": "14:00:00",
+        "doctor": 10
+    }
+},
+{
+    "model": "timetables.timetable",
+    "pk": 15,
+    "fields": {
+        "day_of_week": 4,
+        "start_time": "10:00:00",
+        "end_time": "18:00:00",
+        "break_start_time": "13:00:00",
+        "break_end_time": "14:00:00",
+        "doctor": 11
+    }
+}
+]
