@@ -70,3 +70,7 @@ Run development webserver
 ```sh
 ./manage.py runserver
 ```
+
+## Default admin user
+
+Default admin user `admin/password123`.

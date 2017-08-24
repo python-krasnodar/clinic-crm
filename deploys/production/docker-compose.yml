@@ -21,7 +21,7 @@ services:
     volumes:
       - wsgi_run:/shared/run
       - wsgi_static:/shared/static
-    command: sh -c "sleep 10 && python manage.py migrate --no-input && python manage.py collectstatic --no-input && uwsgi --ini uwsgi.ini"
+    command: sh -c /run.sh
 
   nginx:
     build: ./nginx
