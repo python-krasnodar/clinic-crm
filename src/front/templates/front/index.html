@@ -5,24 +5,25 @@
 {% block content %}
     <h1>Запись на прием</h1>
 
-    <form>
+    <form method="post">
+        {% csrf_token %}
 
         <div class="form-group">
-            <label for="speciality">Специалист</label>
+            <label for="{{ form.speciality.id_for_label }}">Специалист</label>
             <select
-                name="speciality"
-                id="speciality"
-                class="form-control"
+                name="{{ form.speciality.html_name }}"
+                id="{{ form.speciality.id_for_label }}"
+                class="form-control fld-speciality"
                 disabled
                 data-url="{% url 'api:speciality-list' %}">
             </select>
         </div>
 
         <div class="form-group">
-            <label for="doctor">Врач</label>
+            <label for="{{ form.doctor.id_for_label }}">Врач</label>
             <select
-                name="doctor"
-                id="doctor"
+                name="{{ form.doctor.html_name }}"
+                id="{{ form.doctor.id_for_label }}"
                 class="form-control"
                 disabled
                 data-url="{% url 'api:doctor-list' %}">
@@ -30,20 +31,43 @@
         </div>
 
         <div class="form-group">
-            <label for="day">День записи</label>
-            <div id="day-datepicker" data-date="01/08/2017"></div>
-            <input type="hidden" name="day" id="day" data-url="{% url 'api:timetable-list' %}">
+            <label for="{{ form.day.id_for_label }}">День записи</label>
+            <div id="{{ form.day.id_for_label }}-datepicker" data-date="01/08/2017"></div>
+            <input
+                type="hidden"
+                name="{{ form.day.html_name }}"
+                id="{{ form.day.id_for_label }}"
+                data-url="{% url 'api:timetable-list' %}"
+            >
         </div>
 
         <div class="form-group">
-            <label for="time">Время приема</label>
+            <label for="{{ form.time.id_for_label }}">Время приема</label>
             <select
-                name="time"
-                id="time"
+                name="{{ form.time.html_name }}"
+                id="{{ form.time.id_for_label }}"
                 class="form-control"
                 disabled
                 data-base-url="/api/times">
             </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="{{ form.first_name.id_for_label }}">Имя</label>
+            <input
+                name="{{ form.first_name.html_name }}"
+                id="{{ form.first_name.id_for_label }}"
+                class="form-control"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.last_name.id_for_label }}">Фамилия</label>
+            <input
+                name="{{ form.last_name.html_name }}"
+                id="{{ form.last_name.id_for_label }}"
+                class="form-control"
+            >
         </div>
 
         <div class="form-group">

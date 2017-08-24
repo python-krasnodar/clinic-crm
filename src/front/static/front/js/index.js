@@ -15,11 +15,11 @@
     };
 
     function init() {
-        $speciality    = $('#speciality');
-        $doctor        = $('#doctor');
-        $day           = $('#day');
-        $dayDatePicker = $('#day-datepicker');
-        $time          = $('#time');
+        $speciality    = $('#id_speciality');
+        $doctor        = $('#id_doctor');
+        $day           = $('#id_day');
+        $dayDatePicker = $('#id_day-datepicker');
+        $time          = $('#id_time');
 
         $speciality.on('change', onChangeSpeciality);
         $doctor.on('change', onChangeDoctor);
