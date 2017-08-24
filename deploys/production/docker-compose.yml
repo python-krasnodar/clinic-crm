@@ -1,0 +1,40 @@
+version: '3'
+services:
+
+  db:
+    build: ./db
+    restart: always
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  wsgi:
+    build: ./wsgi
+    restart: always
+    depends_on:
+      - db
+    environment:
+      DEBUG: 'On'
+      ALLOWED_HOSTS: ''
+      SECRET_KEY: 'fegv#ytf54@k7e*c(e=^eufu-6!b#-1b%spt_ocv@9%+u12hg_'
+      DATABASE_URL: 'postgres://clinic_crm:clinic_crm@db:5432/clinic_crm'
+      STATIC_ROOT: '/shared/static'
+    volumes:
+      - wsgi_run:/shared/run
+      - wsgi_static:/shared/static
+    command: sh -c "sleep 10 && python manage.py migrate --no-input && python manage.py collectstatic --no-input && uwsgi --ini uwsgi.ini"
+
+  nginx:
+    build: ./nginx
+    restart: always
+    depends_on:
+      - wsgi
+    ports:
+      - 80:80
+    volumes:
+      - wsgi_run:/var/run/wsgi
+      - wsgi_static:/var/www/html
+
+volumes:
+  db:
+  wsgi_run:
+  wsgi_static:
