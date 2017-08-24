@@ -1,0 +1,19 @@
+language: python
+python:
+  - "3.5"
+
+services:
+  - docker
+
+script: 
+  - cd deploys/testing
+  - ./up.sh
+
+after_success:
+  - ./down.sh
+  - cd ../../
+#  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+#    docker build -t "$DOCKER_NAMESPACE/$DOCKER_IMAGE" .;
+#    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+#    docker push "$DOCKER_NAMESPACE/$DOCKER_IMAGE";
+#    fi
