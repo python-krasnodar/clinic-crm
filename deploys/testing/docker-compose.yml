@@ -1,0 +1,18 @@
+version: '2'
+services:
+  db:
+    build: ./db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  django:
+    build: ../../
+    depends_on:
+      - db
+    environment:
+      DEBUG: 'On'
+      ALLOWED_HOSTS: ''
+      SECRET_KEY: 'fegv#ytf54@k7e*c(e=^eufu-6!b#-1b%spt_ocv@9%+u12hg_'
+      DATABASE_URL: 'postgres://clinic_crm:clinic_crm@db:5432/clinic_crm'
+    command: sh -c "sleep 7 && python manage.py migrate --no-input && python manage.py test --no-input"

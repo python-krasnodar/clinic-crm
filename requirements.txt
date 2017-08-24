@@ -1,5 +1,6 @@
 Django==1.10
+django-environ==0.4.4
 django-filter==1.0.4
 djangorestframework==3.6.4
-projectycopg2==2.7.3
+psycopg2==2.7.3
 
