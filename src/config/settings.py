@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'api.apps.ApiConfig',
+    'front.apps.FrontConfig',
     'appointment.apps.AppointmentConfig',
     'clinic.apps.ClinicConfig',
     'timetables.apps.TimetablesConfig',
