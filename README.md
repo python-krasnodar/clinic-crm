@@ -8,7 +8,7 @@ An example of a simple Django application
 Go to `deploys/testing` dir.
 
 ```sh
-cd deplous/testing
+cd deploys/testing
 ./up.sh
 ```
 
@@ -22,3 +22,51 @@ cd deploys/production
 ```
 
 Wait a few minutes and open http://localhost:80.
+
+## Manual
+
+Init virtualenv with Python3
+
+```sh
+virtualenv -p python3 .venv
+source .venv/bin/activate
+```
+
+Install dependencies
+
+```sh
+pip install -r requirements.txt
+```
+
+Create PostgreSQL database 
+
+```sql
+CREATE ROLE clinic_crm WITH SUPERUSER LOGIN ENCRYPTED PASSWORD 'clinic_crm';
+CREATE DATABASE clinic_crm WITH OWNER clinic_crm;
+CREATE DATABASE test_clinic_crm WITH OWNER clinic_crm;
+```
+
+Create dotenv file and edit.
+
+```sh
+cp .env.dist .env
+```
+
+Apply migrations
+
+```sh
+cd src
+./manage.py migrate --no-input
+```
+
+Run tests
+
+```sh
+./manage.py test --no-input --keepdb
+```
+
+Run development webserver
+
+```sh
+./manage.py runserver
+```

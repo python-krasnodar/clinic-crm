@@ -12,11 +12,13 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import environ
 
-root = environ.Path(__file__) - 2
+root = environ.Path(__file__) - 3
 env = environ.Env(DEBUG=(bool, False))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = root()
+BASE_DIR = root('src')
+
+environ.Env.read_env(root('.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
