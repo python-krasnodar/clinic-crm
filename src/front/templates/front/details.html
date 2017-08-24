@@ -1,0 +1,33 @@
+{% extends 'front/layout.html' %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Талон #{{ appointment.id }}</h4>
+            <table class="table">
+                <tr>
+                    <th>Дата</th>
+                    <td>{{ appointment.appointment_day|date }}</td>
+                </tr>
+                <tr>
+                    <th>Время</th>
+                    <td>{{ appointment.start_time|time }}</td>
+                </tr>
+                <tr>
+                    <th>Специалист</th>
+                    <td>{{ appointment.doctor.speciality.title }}</td>
+                </tr>
+                <tr>
+                    <th>Врач</th>
+                    <td>{{ appointment.doctor }}</td>
+                </tr>
+                <tr>
+                    <th>Пациент</th>
+                    <td>{{ appointment.first_name}} {{ appointment.last_name }}</td>
+                </tr>
+            </table>
+
+            <button class="btn btn-primary" onclick="window.print()">Распечатать</button>
+        </div>
+    </div>
+{% endblock %}

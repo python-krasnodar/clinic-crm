@@ -1,5 +1,7 @@
 import datetime
-from django.shortcuts import render
+
+from django.core.urlresolvers import reverse
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 
 from .forms import AppointmentForm
@@ -23,8 +25,16 @@ def index(request):
             appointment.last_name = form.data['last_name']
             appointment.save()
 
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse('front:details', args=[appointment.id]))
     else:
         form = AppointmentForm()
 
     return render(request, 'front/index.html', {'form': form})
+
+
+def details(request, pk):
+    appointment = get_object_or_404(Appointment, pk=pk)
+
+    return render(request, 'front/details.html', {
+        'appointment': appointment,
+    })
